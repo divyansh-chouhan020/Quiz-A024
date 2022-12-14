@@ -75,11 +75,11 @@ main {
   position: absolute;
   display: block;
   /* opacity: 1; */
-  width:40%;
+  width: 40%;
   /* transform: translateY(6rem)  translateX(-35rem); */
-  bottom:11rem;
+  bottom: 11rem;
 }
-.hidden{
+.hidden {
   display: none;
 }
 .copyRight {
@@ -90,8 +90,8 @@ main {
   bottom: 2rem;
 }
 @media screen and (max-width: 576px) {
-  .box{
-    width:max-content;
+  .box {
+    width: 60%;
   }
   .Ques {
     font-size: 1rem;
