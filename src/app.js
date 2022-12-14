@@ -31,9 +31,11 @@ const display = document.querySelector('.box');
 const ques = document.querySelector('.Ques');
 const options = document.querySelectorAll('.options');
 const btn = document.querySelector('.submit');
+const again = document.querySelector('.again');
 let index = 0;
 let right = 0;
 let wrong = 0;
+
 const loadQues = function () {
   if (index !== total) {
     console.log(index);
@@ -79,6 +81,10 @@ const checkAnswer = function () {
   return answer;
 };
 const endQuiz = () => {
+  if (index !== total) {
+    console.log(display);
+    display.innerHTML = '';
+  }
   let html = '';
   if (right === total) {
     html = `Excellent👏`;
@@ -90,7 +96,10 @@ const endQuiz = () => {
     html = `Better Luck Next time`;
   }
   //   console.log(display);
-  display.innerHTML = `<h2 class="head">Thank you for solving the quiz!! </h2>
+  // again.classList.remove('hidden');
+  display.innerHTML = `
+  
+  <h2 class="head">Thank you for solving the quiz!! </h2>
     <h3 class="marks">Correct Options: ${right}/${total}
     </h3>
     <h2 class="result">${html}</h2>
@@ -98,3 +107,11 @@ const endQuiz = () => {
 };
 loadQues();
 btn.addEventListener('click', getResult);
+console.log(again);
+// again.addEventListener('click', function () {
+//   console.log(index);
+//   index = 0;
+//   right = 0;
+//   loadQues();
+//   // return;
+// });

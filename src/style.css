@@ -31,6 +31,7 @@ main {
   height: 300px;
   padding: 15px;
   border-radius: 5px;
+  position: relative;
 }
 .Ques {
   font-size: 1.5rem;
@@ -69,12 +70,18 @@ main {
   font-size: 2rem;
   text-align: center;
 }
-/* .again {
+.again {
   margin-top: 35px;
+  position: absolute;
   display: block;
-  opacity: 0;
-} */
-
+  /* opacity: 1; */
+  width:40%;
+  /* transform: translateY(6rem)  translateX(-35rem); */
+  bottom:11rem;
+}
+.hidden{
+  display: none;
+}
 .copyRight {
   font-size: 0.75rem;
 
@@ -83,6 +90,9 @@ main {
   bottom: 2rem;
 }
 @media screen and (max-width: 576px) {
+  .box{
+    width:max-content;
+  }
   .Ques {
     font-size: 1rem;
   }
