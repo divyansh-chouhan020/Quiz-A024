@@ -10,8 +10,8 @@ const question = [
   },
   {
     ques: 'In Which JavaScript was launched?',
-    a: '1995',
-    b: '1996',
+    a: '1996',
+    b: '1995',
     c: '1998',
     d: '2000',
     correct: 'b',
