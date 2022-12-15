@@ -36,16 +36,18 @@ let index = 0;
 let right = 0;
 let wrong = 0;
 
-const emptyQues = function () {
-  display.innerHTML = '';
-  loadQues();
-};
+// for without result
+// const emptyQues = function () {
+//   display.innerHTML = '';
+//   loadQues();
+// };
 
 const loadQues = function () {
   if (index !== total) {
     console.log(index);
     let data = question[index];
     console.log(data);
+ /*
     const html = ` <h1 class="Ques">Q${index + 1}) ${data.ques} </h1>
   <div class="row">
     <input
@@ -89,17 +91,18 @@ const loadQues = function () {
     <label for="option">${data.d}</label>
   </div>
   <button class="btn submit"   onclick="getResult()">Submit</button>`;
-    /*
-  //////// this is for without try again button
-    // ques.innerText = `Q${index + 1}) ${data.ques}`;
-
-    // options[0].nextElementSibling.innerText = data.a;
-    // options[1].nextElementSibling.innerText = data.b;
-    // options[2].nextElementSibling.innerText = data.c;
-    // options[3].nextElementSibling.innerText = data.d;
+  */
   
-*/
-    display.innerHTML = html;
+  //////// this is for without try again button
+    ques.innerText = `Q${index + 1}) ${data.ques}`;
+
+    options[0].nextElementSibling.innerText = data.a;
+    options[1].nextElementSibling.innerText = data.b;
+    options[2].nextElementSibling.innerText = data.c;
+    options[3].nextElementSibling.innerText = data.d;
+  
+    // for without result correct
+    // display.innerHTML = html;
   } else {
     endQuiz();
   }
@@ -156,21 +159,25 @@ const endQuiz = () => {
     <h3 class="marks">Correct Options: ${right}/${total}
     </h3>
     <h2 class="result">${html}</h2>
-    <button class="btn again" onclick="againStart()">
-    Try Again 
-       </button>`;
+`;
+// without result
+//    <button class="btn again" onclick="againStart()">
+// Try Again 
+// </button>
 };
-function againStart() {
-  console.log(index);
-  index = 0;
-  right = 0;
-  emptyQues();
-}
+
+// withput result
+// function againStart() {
+//   console.log(index);
+//   index = 0;
+//   right = 0;
+//   emptyQues();
+// }
 
 
 // in start load Question
 loadQues();
 // this is for without try agan button
-// btn.addEventListener('click', getResult);
+btn.addEventListener('click', getResult);
 // console.log(again);
 
