@@ -36,17 +36,70 @@ let index = 0;
 let right = 0;
 let wrong = 0;
 
+const emptyQues = function () {
+  display.innerHTML = '';
+  loadQues();
+};
+
 const loadQues = function () {
   if (index !== total) {
     console.log(index);
     let data = question[index];
     console.log(data);
-    ques.innerText = `Q${index + 1}) ${data.ques}`;
+    const html = ` <h1 class="Ques">Q${index + 1}) ${data.ques} </h1>
+  <div class="row">
+    <input
+      type="radio"
+      class="options"
+      id="option1"
+      value="a"
+      name="ques"
+    />
+    <label for="option">${data.a}</label>
+  </div>
+  <div class="row">
+    <input
+      type="radio"
+      class="options"
+      id="option2"
+      value="b"
+      name="ques"
+    />
+    <label for="option">${data.b}</label>
+  </div>
+  <div class="row">
+    <input
+      type="radio"
+      class="options"
+      id="option3"
+      value="c"
+      name="ques"
+    />
+    <label for="option">${data.c}</label>
+  </div>
 
-    options[0].nextElementSibling.innerText = data.a;
-    options[1].nextElementSibling.innerText = data.b;
-    options[2].nextElementSibling.innerText = data.c;
-    options[3].nextElementSibling.innerText = data.d;
+  <div class="row">
+    <input
+      type="radio"
+      class="options"
+      id="option4"
+      value="d"
+      name="ques"
+    />
+    <label for="option">${data.d}</label>
+  </div>
+  <button class="btn submit"   onclick="getResult()">Submit</button>`;
+    /*
+  //////// this is for without try again button
+    // ques.innerText = `Q${index + 1}) ${data.ques}`;
+
+    // options[0].nextElementSibling.innerText = data.a;
+    // options[1].nextElementSibling.innerText = data.b;
+    // options[2].nextElementSibling.innerText = data.c;
+    // options[3].nextElementSibling.innerText = data.d;
+  
+*/
+    display.innerHTML = html;
   } else {
     endQuiz();
   }
@@ -103,15 +156,21 @@ const endQuiz = () => {
     <h3 class="marks">Correct Options: ${right}/${total}
     </h3>
     <h2 class="result">${html}</h2>
-    `;
+    <button class="btn again" onclick="againStart()">
+    Try Again 
+       </button>`;
 };
+function againStart() {
+  console.log(index);
+  index = 0;
+  right = 0;
+  emptyQues();
+}
+
+
+// in start load Question
 loadQues();
-btn.addEventListener('click', getResult);
-console.log(again);
-// again.addEventListener('click', function () {
-//   console.log(index);
-//   index = 0;
-//   right = 0;
-//   loadQues();
-//   // return;
-// });
+// this is for without try agan button
+// btn.addEventListener('click', getResult);
+// console.log(again);
+
