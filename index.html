@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
-    <!-- <script defer src="src/Js/main.js"></script> -->
     <script defer src="src/app.js"></script>
     <title>Quiz App</title>
   </head>
@@ -13,6 +12,10 @@
   <body>
     <main>
       <div class="box">
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+
         <h1 class="Ques">Q1) What is Your Name?</h1>
         <div class="row">
           <input
@@ -22,7 +25,7 @@
             value="a"
             name="ques"
           />
-          <label for="option">a) Moazam</label>
+          <label for="option1">a) Moazam</label>
         </div>
         <div class="row">
           <input
@@ -32,7 +35,7 @@
             value="b"
             name="ques"
           />
-          <label for="option">b) Ali</label>
+          <label for="option2">b) Ali</label>
         </div>
         <div class="row">
           <input
@@ -42,7 +45,7 @@
             value="c"
             name="ques"
           />
-          <label for="option">c) Usman</label>
+          <label for="option3">c) Usman</label>
         </div>
 
         <div class="row">
@@ -53,13 +56,13 @@
             value="d"
             name="ques"
           />
-          <label for="option">d) Ammar</label>
-        </div>
+          <label for="option4">d) Ammar</label>
+      <div class="row">
         <button class="btn submit">Submit</button>
         <button class="btn2 submit2">Prev</button>
       </div>
      
-      <p class="copyRight">&#169; Syed Moazam Ali.All Right reserved.</p>
+      <p class="copyRight">&#169; Syed Moazam Ali. All Rights Reserved.</p>
     </main>
   </body>
 </html>
