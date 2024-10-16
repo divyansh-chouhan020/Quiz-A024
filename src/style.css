@@ -74,6 +74,7 @@ main {
   cursor: pointer;
   transition: all 0.3s;
   margin-top: 20px;
+  width: calc(50% - 10px);
 }
 .btn2 {
   outline: none;
@@ -88,6 +89,7 @@ main {
   cursor: pointer;
   transition: all 0.3s;
   margin-top: 20px;
+  width: calc(50% - 10px);
 }
 .btn:hover {
   background-color: #2980b9;
@@ -109,13 +111,10 @@ main {
   text-align: center;
 }
 .again {
-  margin-top: 35px;
-  position: absolute;
-  display: block;
-  /* opacity: 1; */
-  width: 95%;
-  /* transform: translateY(6rem)  translateX(-35rem); */
-  /* bottom: 11rem; */
+  margin-top: 20px;
+  width: 100%;
+  position: static;
+  display: inline-block;
 }
 .hidden {
   display: none;
@@ -165,4 +164,21 @@ main {
   .btn {
     font-size: 1rem;
   }
+}
+
+.progress-container {
+  width: 100%; 
+  background-color: #e0e0e0; 
+  border-radius: 25px; 
+  margin: 20px 0; 
+  height: 20px; 
+  overflow: hidden; 
+}
+
+.progress-bar {
+  height: 100%; 
+  width: 0; 
+  background-color: #3498db; 
+  border-radius: 25px; 
+  transition: width 0.3s ease; 
 }
