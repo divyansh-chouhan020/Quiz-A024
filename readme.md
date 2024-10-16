@@ -5,9 +5,7 @@ Welcome to the Quiz App! This application is built using HTML, CSS, and JavaScri
 ## Features
 
 - Multiple choice questions
-- Real-time score tracking
 - Responsive design for all devices
-- Timer for each question
 - Interactive UI/UX
 
 ## Technologies Used
