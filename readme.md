@@ -45,6 +45,8 @@ Make sure you have a web browser installed.
 
 Contributions are welcome! Please fork the repository and create a pull request. Also, star this repo and follow me for quick PR acceptance.
 
+Also Add your info in contribution/content.md and image in contribution/images
+
 ## License
 
 This project is licensed under the MIT License.
