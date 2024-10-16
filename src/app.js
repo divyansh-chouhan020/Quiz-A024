@@ -32,6 +32,7 @@ const display = document.querySelector('.box');
 const ques = document.querySelector('.Ques');
 const options = document.querySelectorAll('.options');
 const btn = document.querySelector('.submit');
+const btn2 = document.querySelector('.submit2');
 const again = document.querySelector('.again');
 let index = 0;
 let right = 0;
@@ -122,6 +123,13 @@ const getResult = function () {
   loadQues();
   return;
 };
+const prevQ = function () {
+  if(index > 0){
+      --index;
+  }
+  loadQues();
+  return;
+};
 const reset = () => {
   options.forEach(input => {
     input.checked = false;
@@ -179,4 +187,5 @@ const endQuiz = () => {
 loadQues();
 // this is for without try agan button
 btn.addEventListener('click', getResult);
+btn2.addEventListener('click', prevQ);
 // console.log(again);

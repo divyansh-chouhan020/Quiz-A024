@@ -75,7 +75,24 @@ main {
   transition: all 0.3s;
   margin-top: 20px;
 }
+.btn2 {
+  outline: none;
+  width: 100%;
+  font-size: 1.4rem;
+  background-color: #3498db;;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
 .btn:hover {
+  background-color: #2980b9;
+}
+.btn2:hover {
   background-color: #2980b9;
 }
 .head {
