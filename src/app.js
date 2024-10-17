@@ -1,4 +1,5 @@
 console.log('Moazam');
+
 const question = [
   {
     ques: 'Which of the following is the markup Language?',
@@ -9,7 +10,7 @@ const question = [
     correct: 'a',
   },
   {
-    ques: 'In Which JavaScript was launched?',
+    ques: 'In which year was JavaScript launched?',
     a: '1996',
     b: '1995',
     c: '1998',
@@ -28,22 +29,18 @@ const question = [
 
 const total = question.length;
 const display = document.querySelector('.box');
-const ques = document.querySelector('.Ques');
-const options = document.querySelectorAll('.options');
-const btn = document.querySelector('.submit');
-const btn2 = document.querySelector('.submit2');
 const progressBar = document.querySelector('.progress-bar');
 let index = 0;
 let right = 0;
 let wrong = 0;
 
-
+// Load questions
 const loadQues = function () {
   if (index < total) {
-    let data = question[index];
+    const data = question[index];
     display.innerHTML = `
       <div class="progress-container">
-        <div class="progress-bar"></div>
+        <div class="progress-bar" style="width: ${((index + 1) / total) * 100}%;"></div>
       </div>
       <h1 class="Ques">Q${index + 1}) ${data.ques}</h1>
       <div class="row">
@@ -66,37 +63,45 @@ const loadQues = function () {
         <button class="btn submit">Submit</button>
         <button class="btn2 submit2">Prev</button>
       </div>
+      <p id="error-message" style="color: red;"></p>
     `;
 
+    // Update progress bar
     const progressPercentage = ((index + 1) / total) * 100;
-    const progressBar = document.querySelector('.progress-bar');
     progressBar.style.width = `${progressPercentage}%`;
 
-    document.querySelector('.submit').addEventListener('click', getResult);
-    document.querySelector('.submit2').addEventListener('click', prevQ);
+    // Attach event listeners
+    document.querySelector('.submit').onclick = getResult;
+    document.querySelector('.submit2').onclick = prevQ;
   } else {
     endQuiz();
   }
 };
 
+// Get result and validate
 const getResult = function () {
-  let data = question[index];
+  const data = question[index];
   const answer = checkAnswer();
+  const errorMessage = document.getElementById('error-message');
+
+  if (!answer) {
+    errorMessage.textContent = 'Please select an answer before submitting.';
+    return;
+  } else {
+    errorMessage.textContent = ''; // Clear the error message
+  }
+
   if (answer === data.correct) {
     right++;
   } else {
     wrong++;
   }
+
   index++;
   loadQues();
 };
 
-const reset = () => {
-  options.forEach(input => {
-    input.checked = false;
-  });
-};
-
+// Check selected answer
 const checkAnswer = function () {
   const options = document.querySelectorAll('.options');
   let answer;
@@ -108,6 +113,7 @@ const checkAnswer = function () {
   return answer;
 };
 
+// Navigate to previous question
 const prevQ = function () {
   if (index > 0) {
     index--;
@@ -115,6 +121,7 @@ const prevQ = function () {
   }
 };
 
+// End the quiz and display results
 const endQuiz = () => {
   display.innerHTML = '';
   let resultMessage = '';
@@ -127,7 +134,7 @@ const endQuiz = () => {
   } else {
     resultMessage = `Better Luck Next time`;
   }
-  
+
   display.innerHTML = `
     <h2 class="head">Thank you for solving the quiz!</h2>
     <h3 class="marks">Correct Options: ${right}/${total}</h3>
@@ -136,24 +143,13 @@ const endQuiz = () => {
   `;
 };
 
+// Restart the quiz
 const againStart = () => {
   index = 0;
   right = 0;
   wrong = 0;
   loadQues();
-  resetProgressBar();
 };
 
-const resetProgressBar = () => {
-  progressBar.style.width = '0%';
-};
-
-btn.addEventListener('click', getResult);
-btn2.addEventListener('click', () => {
-  if (index > 0) {
-    index--;
-    loadQues();
-  }
-});
-
+// Load the first question
 loadQues();
