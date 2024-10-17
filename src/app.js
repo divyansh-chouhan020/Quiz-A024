@@ -28,15 +28,13 @@ const question = [
 
 const total = question.length;
 const display = document.querySelector('.box');
-const ques = document.querySelector('.Ques');
-const options = document.querySelectorAll('.options');
 const btn = document.querySelector('.submit');
 const btn2 = document.querySelector('.submit2');
 const progressBar = document.querySelector('.progress-bar');
 let index = 0;
 let right = 0;
 let wrong = 0;
-
+let selectedAnswers = {}; // Store selected answers
 
 const loadQues = function () {
   if (index < total) {
@@ -66,14 +64,16 @@ const loadQues = function () {
         <button class="btn submit">Submit</button>
         <button class="btn2 submit2">Prev</button>
       </div>
+      <p id="error-message" style="color: red;"></p>
     `;
 
     const progressPercentage = ((index + 1) / total) * 100;
-    const progressBar = document.querySelector('.progress-bar');
     progressBar.style.width = `${progressPercentage}%`;
 
-    document.querySelector('.submit').addEventListener('click', getResult);
-    document.querySelector('.submit2').addEventListener('click', prevQ);
+    // Restore the previous selected answer, if any
+    if (selectedAnswers[index]) {
+      document.getElementById(`option${selectedAnswers[index]}`).checked = true;
+    }
   } else {
     endQuiz();
   }
@@ -82,19 +82,25 @@ const loadQues = function () {
 const getResult = function () {
   let data = question[index];
   const answer = checkAnswer();
+  
+  if (!answer) {
+    document.getElementById('error-message').textContent = 'Please select an answer before submitting.';
+    return;
+  }
+
+  document.getElementById('error-message').textContent = ''; // Clear the error message
+
   if (answer === data.correct) {
     right++;
   } else {
     wrong++;
   }
+
+  // Store the selected answer for current question
+  selectedAnswers[index] = answer;
+
   index++;
   loadQues();
-};
-
-const reset = () => {
-  options.forEach(input => {
-    input.checked = false;
-  });
 };
 
 const checkAnswer = function () {
@@ -140,6 +146,7 @@ const againStart = () => {
   index = 0;
   right = 0;
   wrong = 0;
+  selectedAnswers = {}; // Reset stored answers
   loadQues();
   resetProgressBar();
 };
@@ -148,12 +155,9 @@ const resetProgressBar = () => {
   progressBar.style.width = '0%';
 };
 
+// Add event listeners once
 btn.addEventListener('click', getResult);
-btn2.addEventListener('click', () => {
-  if (index > 0) {
-    index--;
-    loadQues();
-  }
-});
+btn2.addEventListener('click', prevQ);
 
+// Load the first question
 loadQues();
