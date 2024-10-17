@@ -1,0 +1,39 @@
+
+h1 {
+    text-align: center;
+}
+.contributors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height:300px;
+    text-align: center;
+    padding: 20px;
+}
+.card img {
+    border-radius: 10%;
+    width: 60%;
+    height: 80%;
+}
+.card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #0056b3;
+}
+.card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 12px;
+}
+.card a:hover {
+    color: #0056b3;
+}
