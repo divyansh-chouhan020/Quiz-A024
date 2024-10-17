@@ -1,4 +1,5 @@
 console.log('Moazam');
+
 const question = [
   {
     ques: 'Which of the following is the markup Language?',
@@ -9,7 +10,7 @@ const question = [
     correct: 'a',
   },
   {
-    ques: 'In Which JavaScript was launched?',
+    ques: 'In which year was JavaScript launched?',
     a: '1996',
     b: '1995',
     c: '1998',
@@ -28,20 +29,18 @@ const question = [
 
 const total = question.length;
 const display = document.querySelector('.box');
-const btn = document.querySelector('.submit');
-const btn2 = document.querySelector('.submit2');
 const progressBar = document.querySelector('.progress-bar');
 let index = 0;
 let right = 0;
 let wrong = 0;
-let selectedAnswers = {}; // Store selected answers
 
+// Load questions
 const loadQues = function () {
   if (index < total) {
-    let data = question[index];
+    const data = question[index];
     display.innerHTML = `
       <div class="progress-container">
-        <div class="progress-bar"></div>
+        <div class="progress-bar" style="width: ${((index + 1) / total) * 100}%;"></div>
       </div>
       <h1 class="Ques">Q${index + 1}) ${data.ques}</h1>
       <div class="row">
@@ -67,28 +66,30 @@ const loadQues = function () {
       <p id="error-message" style="color: red;"></p>
     `;
 
+    // Update progress bar
     const progressPercentage = ((index + 1) / total) * 100;
     progressBar.style.width = `${progressPercentage}%`;
 
-    // Restore the previous selected answer, if any
-    if (selectedAnswers[index]) {
-      document.getElementById(`option${selectedAnswers[index]}`).checked = true;
-    }
+    // Attach event listeners
+    document.querySelector('.submit').onclick = getResult;
+    document.querySelector('.submit2').onclick = prevQ;
   } else {
     endQuiz();
   }
 };
 
+// Get result and validate
 const getResult = function () {
-  let data = question[index];
+  const data = question[index];
   const answer = checkAnswer();
-  
-  if (!answer) {
-    document.getElementById('error-message').textContent = 'Please select an answer before submitting.';
-    return;
-  }
+  const errorMessage = document.getElementById('error-message');
 
-  document.getElementById('error-message').textContent = ''; // Clear the error message
+  if (!answer) {
+    errorMessage.textContent = 'Please select an answer before submitting.';
+    return;
+  } else {
+    errorMessage.textContent = ''; // Clear the error message
+  }
 
   if (answer === data.correct) {
     right++;
@@ -96,13 +97,11 @@ const getResult = function () {
     wrong++;
   }
 
-  // Store the selected answer for current question
-  selectedAnswers[index] = answer;
-
   index++;
   loadQues();
 };
 
+// Check selected answer
 const checkAnswer = function () {
   const options = document.querySelectorAll('.options');
   let answer;
@@ -114,6 +113,7 @@ const checkAnswer = function () {
   return answer;
 };
 
+// Navigate to previous question
 const prevQ = function () {
   if (index > 0) {
     index--;
@@ -121,6 +121,7 @@ const prevQ = function () {
   }
 };
 
+// End the quiz and display results
 const endQuiz = () => {
   display.innerHTML = '';
   let resultMessage = '';
@@ -133,7 +134,7 @@ const endQuiz = () => {
   } else {
     resultMessage = `Better Luck Next time`;
   }
-  
+
   display.innerHTML = `
     <h2 class="head">Thank you for solving the quiz!</h2>
     <h3 class="marks">Correct Options: ${right}/${total}</h3>
@@ -142,22 +143,13 @@ const endQuiz = () => {
   `;
 };
 
+// Restart the quiz
 const againStart = () => {
   index = 0;
   right = 0;
   wrong = 0;
-  selectedAnswers = {}; // Reset stored answers
   loadQues();
-  resetProgressBar();
 };
-
-const resetProgressBar = () => {
-  progressBar.style.width = '0%';
-};
-
-// Add event listeners once
-btn.addEventListener('click', getResult);
-btn2.addEventListener('click', prevQ);
 
 // Load the first question
 loadQues();
