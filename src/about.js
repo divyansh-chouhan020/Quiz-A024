@@ -86,35 +86,57 @@ async function fetchContributorData() {
     );
 
     const container = document.getElementById('contributors');
+    const searchInput = document.getElementById('search-input');
 
-    contributors.forEach(async contributor => {
-      const name = contributor[1];
-      const role = contributor[2];
-      const githubUrl = contributor[4];
-      const username = extractGitHubUsername(githubUrl);
-     
-      let avatarUrl = await fetchContributorImageLink(
-        'MoazamAli45',
-        'Quiz-AppHactoberfest2024',
-        'contribution/images',
-        username
+    // Store contributors data in a local variable
+    const contributorsData = contributors.map(contributor => ({
+      name: contributor[1],
+      role: contributor[2],
+      githubUrl: contributor[4],
+      username: extractGitHubUsername(contributor[4]),
+    }));
+
+    // Function to display contributors
+    function displayContributors(filteredContributors) {
+      container.innerHTML = ''; // Clear existing contributors
+      filteredContributors.forEach(async contributor => {
+        let avatarUrl = await fetchContributorImageLink(
+          'MoazamAli45',
+          'Quiz-AppHactoberfest2024',
+          'contribution/images',
+          contributor.username
+        );
+
+        if (avatarUrl == undefined) {
+          // Use GitHub Avatar as fallback
+          avatarUrl = `${contributor.githubUrl}.png?size=100`;
+        }
+
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <img src="${avatarUrl}" alt="Avatar of ${contributor.name}">
+          <h3>${contributor.name}</h3>
+          <h4>${contributor.role}</h4>
+          <a href="${contributor.githubUrl}" target="_blank">Github</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Initial display of contributors
+    displayContributors(contributorsData);
+
+    // Search functionality
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const filteredContributors = contributorsData.filter(contributor =>
+        contributor.name.toLowerCase().includes(searchTerm) || 
+        contributor.role.toLowerCase().includes(searchTerm)
       );
-      
-      if (avatarUrl==undefined) {
-        // when the image is not available use Github Avatar
-        avatarUrl = `${githubUrl}.png?size=100`;
-      }
-
-      const card = document.createElement('div');
-      card.classList.add('card');
-      card.innerHTML = `
-                    <img src="${avatarUrl}" alt="Avatar of ${name}">
-                    <h3>${name}</h3>
-                    <h4>${role}</h4>
-                    <a href="${githubUrl}" target="_blank">Github</a>
-                `;
-      container.appendChild(card);
+      displayContributors(filteredContributors);
     });
+
   } catch (error) {
     console.error('Error fetching README:', error);
   }

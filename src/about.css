@@ -40,3 +40,30 @@ h1 {
 .card a:hover {
     color: #0056b3;
 }
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#search-input:focus {
+    border-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    #search-input {
+        max-width: 90%;
+    }
+}
