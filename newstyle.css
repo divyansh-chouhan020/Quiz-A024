@@ -1,34 +1,6 @@
 /* Reset some default styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Courier New', Courier, monospace; /* Coding font */
-  background-color: #f4f4f4; /* Light background */
-  color: #333; /* Dark text for readability */
-  line-height: 1.6;
-}
 
-.navbar {
-  background: linear-gradient(135deg, #007bff, #00aaff); /* Gradient blue */
-  color: white;
-  padding: 1rem 0;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-}
-
-h2 {
-  margin-bottom: 1rem;
-}
-
-.links {
-  display: flex;
-  justify-content: center; /* Center the buttons */
-  gap: 1rem; /* Space between buttons */
-}
 
 .nav-button {
   background: #007bff; /* Blue background for buttons */
