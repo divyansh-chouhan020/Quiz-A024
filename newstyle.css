@@ -1,7 +1,5 @@
 /* Reset some default styles */
 
-
-
 .nav-button {
   background: #007bff; /* Blue background for buttons */
   color: white;
@@ -90,9 +88,38 @@ button:active {
   transform: translateY(0); /* Reset lift on click */
 }
 
-/* footer {
-  text-align: center;
-  margin-top: 2rem;
-  color: #666;
-  font-size: 0.9rem;
-} */
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for readability */
+}
+
+body.dark-mode .navbar {
+  background: #333; /* Dark background for navbar */
+}
+
+body.dark-mode .box {
+  background: #1e1e1e; /* Dark card background */
+  border: 1px solid #444; /* Darker border */
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode textarea {
+  border: 2px solid #00aaff; /* Light blue border for inputs */
+}
+
+body.dark-mode input[type="text"]:focus,
+body.dark-mode input[type="email"]:focus,
+body.dark-mode textarea:focus {
+  border-color: #00bfff; /* Brighter focus border */
+  box-shadow: 0 0 5px rgba(0, 169, 255, 0.5); /* Subtle glow effect on focus */
+}
+
+body.dark-mode button {
+  background: #0056b3; /* Darker blue for buttons */
+}
+
+body.dark-mode button:hover {
+  background: #007bff; /* Brighter blue on hover */
+}
