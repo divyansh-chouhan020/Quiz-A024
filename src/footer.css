@@ -1,0 +1,40 @@
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    font-family: sans-serif;
+  }
+  
+  .copyright{
+    font-size: 18px;
+  }
+  .contact-section {
+    margin-top: 10px;
+  }
+  
+  .contact-section p {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+  }
+  
+  .social-icon {
+    width: 35px;  /* Limit icon width */
+    height: 35px; /* Limit icon height */
+    transition: transform 0.3s ease;
+    color:white;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+  }
