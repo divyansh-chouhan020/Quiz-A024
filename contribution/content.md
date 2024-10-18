@@ -7,4 +7,3 @@
 - **Role**: Contributor
 - **Institution**: DTU
 - **GitHub Link**: https://github.com/siddharthgoel94
-
