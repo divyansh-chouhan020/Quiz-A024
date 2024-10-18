@@ -118,9 +118,9 @@ button:active {
   transform: translateY(0); /* Reset lift on click */
 }
 
-footer {
+/* footer {
   text-align: center;
   margin-top: 2rem;
   color: #666;
   font-size: 0.9rem;
-}
+} */
