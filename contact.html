@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/navbar.css" />
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/navbar.css">
     <link rel="stylesheet" href="src/footer.css">
     <link rel="stylesheet" href="newstyle.css">
-    
     <title>Contact Us</title>
 </head>
+
 <body>
+    <!-- Navbar -->
     <div class="navbar">
         <h2><a href="index.html">Quiz App</a></h2>
         <div class="links">
@@ -21,47 +22,54 @@
         </div>
     </div>
 
+    <!-- Main Section -->
     <main>
-        <div class="box">
-            <h1>Get in Touch</h1>
-            <form id="contact-form">
-                <div class="row">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="Enter your name" required>
-                </div>
-                <div class="row">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                </div>
-                <div class="row">
-                    <label for="project">Project:</label>
-                    <textarea id="project" rows="4" placeholder="Describe your project" required></textarea>
-                </div>
-                <div class="row">
-                    <button type="submit" class="btn">Send Message</button>
-                </div>
-            </form>
-            <div id="response-message"></div>
+        <div class="section_10">
+            <h2 class="form-heading">Get in Touch</h2>
+            <div class="responsive-container-block container">
+                <form id="contact-form">
+                    <div class="responsive-container-block form-container">
+                        <div class="responsive-cell-block wk-desk-6 wk-tab-12 first-name">
+                            <p class="text-blk input-title">Full Name</p>
+                            <input class="input" id="name" name="FirstName" placeholder="Full Name" required>
+                        </div>
+                        <div class="responsive-cell-block wk-desk-6 wk-tab-12">
+                            <p class="text-blk input-title">Email Address</p>
+                            <input class="input" id="email" name="Email" placeholder="Email" required>
+                        </div>
+                        <div class="responsive-cell-block wk-desk-12 wk-tab-12">
+                            <p class="text-blk input-title">Project</p>
+                            <textarea class="textinput" id="message" placeholder="Write a project description..."
+                                required></textarea>
+                        </div>
+                        <div class="responsive-cell-block wk-desk-12 wk-tab-12">
+                            <button class="submit-btn" type="submit">Send message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="copyright">&#169; Syed Moazam Ali. All Rights Reserved.</div>
         <div class="contact-section">
-          <p>Contact Us</p>
-          <div class="social-links">
-            <a href="https://github.com/MoazamAli45" target="_blank">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbs0AFL4hHvaEXtFXpNdD1bW_5JR0lfHR1uD2zjt8pOHf7ZcX6gqXeZGkKLtVjGv71NUY&usqp=CAU" alt="GitHub" class="social-icon">
-            </a>
-            <a href="https://www.linkedin.com/in/syedmoazamali/" target="_blank">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4As9PjnlK1rUewbtT1pDnIerPG67oFi-Vxg&s" alt="LinkedIn" class="social-icon">
-            </a>
-          </div>
+            <p>Contact Us</p>
+            <div class="social-links">
+                <a href="https://github.com/MoazamAli45" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbs0AFL4hHvaEXtFXpNdD1bW_5JR0lfHR1uD2zjt8pOHf7ZcX6gqXeZGkKLtVjGv71NUY&usqp=CAU"
+                        alt="GitHub" class="social-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/syedmoazamali/" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4As9PjnlK1rUewbtT1pDnIerPG67oFi-Vxg&s"
+                        alt="LinkedIn" class="social-icon">
+                </a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="contact.js"></script>
     <script src="src/theme.js"></script>
 </body>
+
 </html>
