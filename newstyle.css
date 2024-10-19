@@ -1,125 +1,153 @@
-/* Reset some default styles */
+/* General Styles */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    background-image: url(src/quizz.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation Button */
 .nav-button {
-  background: #007bff; /* Blue background for buttons */
-  color: white;
-  padding: 0.7rem 1.2rem; /* Padding for buttons */
-  border: none;
-  border-radius: 8px; /* Rounded corners */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Bold text */
-  transition: background 0.3s ease, transform 0.3s ease; /* Transition effects */
+    background: linear-gradient(135deg, #007bff, #00aaff);
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .nav-button:hover {
-  background: #0056b3; /* Darker blue on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    transform: translateY(2px);
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center; /* Center-align the heading */
-  font-family: 'Arial', sans-serif; /* Change font for heading */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for text */
+/* Main Section */
+main {
+    margin: auto;
 }
 
-.box {
-  max-width: 600px; /* Centering container */
-  margin: 2rem auto;
-  padding: 2rem; /* Increased padding for better spacing */
-  background: white;
-  border-radius: 15px; /* More rounded corners */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Deeper shadow */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Light border */
+/* Glassmorphism Effect */
+.section_10 {
+    max-width: 100%; /* Allow the container to take full width */
+    margin: 3rem 2rem; /* Add some side margins for smaller screens */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.2); /* Transparent white */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Blur effect behind the element */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Glass border effect */
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+/* Form Heading */
+.form-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: bold;
 }
 
-.row {
-  margin-bottom: 1.5rem; /* Increased spacing between rows */
+/* Form Styles */
+.input, .textinput {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background-color: rgba(248, 248, 248, 0.7); /* Slightly transparent background */
 }
 
-label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+.input:focus, .textinput:focus {
+    border-color: #00aaff;
+    outline: none;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-  border: 2px solid #007bff; /* Blue border */
-  border-radius: 8px; /* More rounded corners */
-  padding: 0.8rem; /* Increased padding */
-  margin-bottom: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  width: calc(100% - 10px); /* Increase width to fit the panel */
+.submit-btn {
+    background: linear-gradient(135deg, #007bff, #00aaff);
+    color: white;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  border-color: #00aaff; /* Focus border color */
-  box-shadow: 0 0 5px rgba(0, 169, 255, 0.5); /* Subtle glow effect on focus */
-  outline: none; /* Remove default outline */
+.submit-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    transform: translateY(-3px);
 }
 
-button {
-  background: #007bff; /* Blue background */
-  color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 8px; /* More rounded corners */
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added shadow transition */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+/* Responsive Layout */
+.responsive-container-block {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-button:hover {
-  background: #0056b3; /* Darker blue on hover */
-  transform: translateY(-3px); /* Lift effect */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+.responsive-cell-block {
+    width: 100%; /* Make sure each form element takes full width */
+    padding: 10px;
 }
 
-button:active {
-  transform: translateY(0); /* Reset lift on click */
+/* Media Queries for different screen sizes */
+@media (min-width: 768px) {
+    .section_10 {
+        max-width: 720px; /* Narrower form for tablet devices */
+        margin: 3rem auto;
+    }
 }
 
-/* Dark Mode Styles */
+@media (min-width: 992px) {
+    .section_10 {
+        max-width: 900px; /* Wider form for larger screens */
+        margin: 3rem auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .section_10 {
+        max-width: 1000px; /* Larger form width for desktop screens */
+        margin: 3rem auto;
+    }
+}
+
+/* Dark Mode */
 body.dark-mode {
-  background-color: #121212; /* Dark background */
-  color: #e0e0e0; /* Light text for readability */
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
-body.dark-mode .navbar {
-  background: #333; /* Dark background for navbar */
+body.dark-mode .section_10 {
+    background: rgba(0, 0, 0, 0.5); /* Transparent black glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Blur effect behind the element for Safari */
+    backdrop-filter: blur(10px); /* Blur effect behind the element */   
+     border: 1px solid rgba(255, 255, 255, 0.1); /* Light border for contrast */
 }
 
-body.dark-mode .box {
-  background: #1e1e1e; /* Dark card background */
-  border: 1px solid #444; /* Darker border */
+body.dark-mode h2{
+    color: #e0e0e0;
 }
 
-body.dark-mode input[type="text"],
-body.dark-mode input[type="email"],
-body.dark-mode textarea {
-  border: 2px solid #00aaff; /* Light blue border for inputs */
+body.dark-mode .input, body.dark-mode .textinput {
+    background-color: rgba(51, 51, 51, 0.7); /* Darker input backgrounds in dark mode */
+    border-color: rgba(255, 255, 255, 0.3); /* Softer border color */
 }
 
-body.dark-mode input[type="text"]:focus,
-body.dark-mode input[type="email"]:focus,
-body.dark-mode textarea:focus {
-  border-color: #00bfff; /* Brighter focus border */
-  box-shadow: 0 0 5px rgba(0, 169, 255, 0.5); /* Subtle glow effect on focus */
-}
-
-body.dark-mode button {
-  background: #0056b3; /* Darker blue for buttons */
-}
-
-body.dark-mode button:hover {
-  background: #007bff; /* Brighter blue on hover */
+body.dark-mode .submit-btn {
+    background: linear-gradient(135deg, #007bff, #00aaff); /* Bright buttons even in dark mode */
+    color: white;
 }
