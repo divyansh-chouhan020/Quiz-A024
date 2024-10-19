@@ -151,3 +151,8 @@ body.dark-mode .submit-btn {
     background: linear-gradient(135deg, #007bff, #00aaff); /* Bright buttons even in dark mode */
     color: white;
 }
+
+
+body.dark-mode .input, .textinput {
+    color: #e0e0e0;
+}
