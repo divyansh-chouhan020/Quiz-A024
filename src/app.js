@@ -73,6 +73,9 @@ const loadQues = function () {
     // Attach event listeners
     document.querySelector('.submit').onclick = getResult;
     document.querySelector('.submit2').onclick = prevQ;
+    if(index > 0){
+      document.querySelector('.submit2').style.display = "none";
+    }
   } else {
     endQuiz();
   }

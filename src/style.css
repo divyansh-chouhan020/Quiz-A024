@@ -67,7 +67,13 @@ body.dark-mode .box {
   display: flex;
   align-items: center;
 }
-
+.submitRow{
+  font-size: 1.2rem;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .options {
   margin-right: 10px;
 }
@@ -103,7 +109,9 @@ body.dark-mode .box {
   margin-top: 20px;
   width: calc(50% - 10px);
 }
-
+.row:hover{
+  color: #007bff;
+}
 .btn:hover {
   background-color: #2980b9;
 }
