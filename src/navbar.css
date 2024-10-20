@@ -1,23 +1,38 @@
 .navbar {
-    background-color: #deedf7;
+    background-color: #deedf7; /* Light mode background */
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
     font-size: 20px;
-    color:#3498db;
+    color: #3498db; /* Light mode text color */
     /* z-index: 10; */
-  }
-  
-  .navbar a {
+}
+
+body.dark-mode .navbar {
+    background-color: #333; /* Dark mode background */
+    color: #deedf7; /* Dark mode text color */
+}
+
+.navbar a {
     float: left;
     display: block;
     /* color: blue; */
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-  }
-  .navbar>.links{
+    color: #3498db; /* Light mode link color */
+}
+
+body.dark-mode .navbar a {
+    color: #deedf7; /* Dark mode link color */
+}
+
+.navbar > .links {
     font-size: 16px;
-  }
+}
+
+body.dark-mode .navbar > .links {
+    color: #deedf7; /* Dark mode link color for .links */
+}

@@ -1,7 +1,7 @@
-
 h1 {
     text-align: center;
 }
+
 .contributors-container {
     display: flex;
     flex-wrap: wrap;
@@ -9,34 +9,40 @@ h1 {
     gap: 20px;
     padding: 20px;
 }
+
 .card {
-    background-color: white;
+    background-color: white; /* Light mode background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    height:300px;
+    height: 300px;
     text-align: center;
     padding: 20px;
 }
+
 .card img {
     border-radius: 10%;
     width: 60%;
     height: 80%;
 }
+
 .card h3 {
     margin: 10px 0;
     font-size: 18px;
     color: #0056b3;
 }
-.card h4{
+
+.card h4 {
     color: #0056b3;
 }
+
 .card a {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
     font-size: 12px;
 }
+
 .card a:hover {
     color: #0056b3;
 }
@@ -51,7 +57,7 @@ h1 {
     width: 100%;
     max-width: 400px;
     padding: 10px;
-    border: 1px solid #007bff;
+    border: 1px solid #007bff; /* Light mode border */
     border-radius: 5px;
     font-size: 16px;
     outline: none;
@@ -59,15 +65,52 @@ h1 {
 }
 
 #search-input:focus {
-    border-color: #0056b3;
+    border-color: #0056b3; /* Light mode focus border */
 }
 
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text */
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e; /* Dark card background */
+    border: 1px solid #444; /* Darker border */
+}
+
+body.dark-mode .card h3,
+body.dark-mode .card h4 {
+    color: #bb86fc; /* Light purple for headings */
+}
+
+body.dark-mode .card a {
+    color: #bb86fc; /* Light purple for links */
+}
+
+body.dark-mode .search-container {
+    color: #ffffff; /* Light text in search container */
+}
+
+body.dark-mode #search-input {
+    border: 1px solid #bb86fc; /* Dark mode border for search input */
+    background-color: #1e1e1e; /* Dark background for input */
+    color: #ffffff; /* Light text for input */
+}
+
+body.dark-mode #search-input:focus {
+    border-color: #6200ee; /* Dark mode focus border color */
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
     #search-input {
         max-width: 90%;
     }
 }
 
+
 footer{
     margin-top: 150px;
 }
+

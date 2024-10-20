@@ -59,7 +59,7 @@ const loadQues = function () {
         <input type="radio" class="options" id="option4" value="d" name="ques" />
         <label for="option4">${data.d}</label>
       </div>
-      <div class="row">
+      <div class="submitRow">
         <button class="btn submit">Submit</button>
         <button class="btn2 submit2">Prev</button>
       </div>
@@ -73,6 +73,9 @@ const loadQues = function () {
     // Attach event listeners
     document.querySelector('.submit').onclick = getResult;
     document.querySelector('.submit2').onclick = prevQ;
+    if(index == 0){
+      document.querySelector('.submit2').style.display = "none";
+    }
   } else {
     endQuiz();
   }
