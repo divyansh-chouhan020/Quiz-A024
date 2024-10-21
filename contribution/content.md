@@ -12,3 +12,9 @@
 - **Role**: Contributor
 - **Institution**: IIIT Lucknow, India
 - **GitHub Link**: https://github.com/poshithNandyala
+
+
+- **Name**:  Zeeshan Ahmad
+- **Role**: Comtributor
+- **Institution**: UET Taxila Pakistan
+- **GitHub Link**: https://github.com/ZeeshanAhmad85
