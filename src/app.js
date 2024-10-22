@@ -183,7 +183,7 @@ function showAnswer() {
 
     // Attach event listeners for navigation
     document.querySelector('.submit').onclick = nextQ;
-    document.querySelector('.submit2').onclick = prevQ;
+    document.querySelector('.submit2').onclick = prevQues;
 
     // Hide Prev button on the first question
     if (index === 0) {
@@ -210,12 +210,17 @@ function nextQ() {
 }
 // Navigate to previous question
 const prevQ = function () {
+  if (index > 0) {
+    index--;
+    loadQues();
+  }
+};
+const prevQues = function () {
   if (i > 0) {
     i--;
     loadQues();
   }
 };
-
 // End the quiz and display results
 const endQuiz = () => {
   display.innerHTML = '';
